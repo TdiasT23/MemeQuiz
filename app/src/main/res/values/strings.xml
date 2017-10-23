@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MemeQuiz</string>
+    <string name="txtExplicativo">O jogo é composto de 10 perguntas sobre os memes da atualidade \n\nTeste seu conhecimento sobre memes e desafie seus amigos :)</string>
 </resources>

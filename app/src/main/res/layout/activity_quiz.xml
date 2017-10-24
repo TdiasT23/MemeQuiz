@@ -16,17 +16,17 @@
         android:layout_marginLeft="38dp"
         android:layout_marginRight="38dp"
         android:layout_marginStart="38dp"
-        android:text="De acordo com Caetano veloso:"
+        android:text="Pergunta"
         android:textAlignment="center"
         android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/rgRespostas"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         tools:layout_constraintBottom_creator="1"
         tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1"
-        app:layout_constraintHorizontal_bias="0.0" />
+        tools:layout_constraintRight_creator="1" />
 
     <Button
         android:id="@+id/btnResponder"
@@ -46,7 +46,7 @@
 
     <ImageView
         android:id="@+id/imgPergunta"
-        android:layout_width="wrap_content"
+        android:layout_width="368dp"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"

@@ -17,15 +17,15 @@ public class QuizActivity extends AppCompatActivity {
     TextView pergunta;
     RadioButton rbResposta1, rbResposta2, rbResposta3, rbResposta4;
     ImageView imgPergunta;
-    int respostaCerta = R.id.rbResposta1;
     RadioGroup rgRespostas;
+    int respostaCerta = R.id.rbResposta1;
     int pontos;
     List<Questao> questoes = new ArrayList<Questao>(){
         {
-            add(new Questao("Quem descobriu o Brasil?", R.id.rbResposta1, "Pedro Álvares Cabral", "Cristóvão Colombo", "Donald Trump", "Prof. Luiz (LuizTools)"));
-            add(new Questao("Qual o melhor site para aprender a programar apps?", R.id.rbResposta2, "http://www.g1.com", "http://www.luiztools.com.br", "http://www.facebook.com", "http://www.twitter.com"));
-            add(new Questao("Qual o melhor político do Brasil?", R.id.rbResposta3, "Tiririca", "Eneas Carneiro", "Nenhum presta", "Todos são bons"));
-            add(new Questao("Qual a melhor plataforma mobile?", R.id.rbResposta4, "Symbian", "BlackBerry", "iOS", "Android <<<"));
+            add(new Questao("Não cara...", R.id.rbResposta2, "Como você é ridículo!", "Como você é burro!", "Como você é idiota!", "Como você é pífio"));
+            add(new Questao("Aqui por exemplo, temos...", R.id.rbResposta4, "Uiiii uii ui", "Ai caramba!", "Ai meu Deus!", "Aiii ai aiii"));
+            add(new Questao("Segundo a pensadora TN Martins, o novinho está", R.id.rbResposta1, "Gostozinho no azeite", "Mec Nelson nos acessos", "Brotando a xota", "Aquelas coisas"));
+            add(new Questao("O comentarista informou aos telespectadores que o programa:", R.id.rbResposta3, "Ta uma merda", "Ta uma droga", "Ta uma poha", "Ta uma zorra"));
         }
     };
 
@@ -35,6 +35,7 @@ public class QuizActivity extends AppCompatActivity {
         setContentView(R.layout.activity_quiz);
 
         pergunta = (TextView)findViewById(R.id.pergunta);
+        rgRespostas = (RadioGroup)findViewById(R.id.rgRespostas);
         rbResposta1 = (RadioButton)findViewById(R.id.rbResposta1);
         rbResposta2 = (RadioButton)findViewById(R.id.rbResposta2);
         rbResposta3 = (RadioButton)findViewById(R.id.rbResposta3);
@@ -62,13 +63,22 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     private void carregarQuestao(){
-        Questao q = questoes.remove(0);
-        pergunta.setText(q.getPergunta());
-        List<String> resposta = q.getRespostas();
-        rbResposta1.setText(resposta.get(0));
-        rbResposta2.setText(resposta.get(1));
-        rbResposta3.setText(resposta.get(2));
-        rbResposta4.setText(resposta.get(3));
-        respostaCerta = q.getRespostaCerta();
+        if(questoes.size() > 0) {
+            Questao q = questoes.remove(0);
+            pergunta.setText(q.getPergunta());
+            List<String> resposta = q.getRespostas();
+            rbResposta1.setText(resposta.get(0));
+            rbResposta2.setText(resposta.get(1));
+            rbResposta3.setText(resposta.get(2));
+            rbResposta4.setText(resposta.get(3));
+            respostaCerta = q.getRespostaCerta();
+            rgRespostas.setSelected(false);
+        }
+        else{ //acabaram as questões
+            Intent intent = new Intent(this, RespostaActivity.class);
+            intent.putExtra("pontos", pontos);
+            startActivity(intent);
+            finish();
+        }
     }
 }

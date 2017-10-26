@@ -50,8 +50,12 @@ public class RespostaActivity extends AppCompatActivity {
             btnJogarNovamente.setVisibility(View.VISIBLE);
             resposta.setText("Você fez " + pontos + " ponto(s)");
 
-            if(pontos >= 3)
+            if(pontos >= 10)
                 imgResposta.setImageResource(R.drawable.fim10);
+            else if(pontos >= 7)
+                imgResposta.setImageResource(R.drawable.fim7a9);
+            else if(pontos >= 5)
+                imgResposta.setImageResource(R.drawable.fim5a6);
             else
                 imgResposta.setImageResource(R.drawable.fim0a5);
         }

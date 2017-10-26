@@ -12,8 +12,10 @@ public class Questao {
     private String pergunta;
     private List<String> respostas = new ArrayList<>();
     private int respostaCerta;
+    private int imgPergunta;
 
-    public Questao(String pergunta, int respostaCerta, String... respostas){
+    public Questao(int imgPergunta, String pergunta, int respostaCerta, String... respostas){
+        this.imgPergunta= imgPergunta;
         this.pergunta = pergunta;
         this.respostas.add(respostas[0]);
         this.respostas.add(respostas[1]);
@@ -25,4 +27,5 @@ public class Questao {
     public String getPergunta(){ return this.pergunta; }
     public List<String> getRespostas(){ return this.respostas; }
     public int getRespostaCerta(){ return this.respostaCerta; }
+    public int getImgPergunta() { return this.imgPergunta; }
 }

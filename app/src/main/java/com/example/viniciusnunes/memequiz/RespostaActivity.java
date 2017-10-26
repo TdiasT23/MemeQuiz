@@ -1,6 +1,7 @@
 package com.example.viniciusnunes.memequiz;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -14,6 +15,8 @@ public class RespostaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resposta);
+
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         ImageView imgResposta = (ImageView)findViewById(R.id.imgResposta);
         TextView resposta = (TextView)findViewById(R.id.resposta);
@@ -37,7 +40,7 @@ public class RespostaActivity extends AppCompatActivity {
                 @Override
                 public void run() {
                     try {
-                        Thread.sleep(1500);
+                        Thread.sleep(1000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -48,7 +51,7 @@ public class RespostaActivity extends AppCompatActivity {
         }
         else{
             btnJogarNovamente.setVisibility(View.VISIBLE);
-            resposta.setText("Você fez " + pontos + " ponto(s)");
+            resposta.setText("Você fez " + pontos + " ponto(s) de 10");
 
             if(pontos >= 10)
                 imgResposta.setImageResource(R.drawable.fim10);

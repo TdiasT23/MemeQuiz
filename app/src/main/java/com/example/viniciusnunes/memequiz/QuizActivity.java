@@ -11,7 +11,10 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 public class QuizActivity extends AppCompatActivity {
 
@@ -75,6 +78,9 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     private void carregarQuestao(){
+
+        embaralhar(questoes);
+
         if(questoes.size() > 0) {
             Questao q = questoes.remove(0);
             pergunta.setText(q.getPergunta());
@@ -93,5 +99,9 @@ public class QuizActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
+    }
+
+    public void embaralhar(List<Questao> questoes){
+        Collections.shuffle(questoes);
     }
 }
